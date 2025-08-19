@@ -3,833 +3,2257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Priya Dee 🎉</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Shubham Shah - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            text-decoration: none !important;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ff6b9d, #c44569, #f8b500, #feca57, #5f27cd, #00d2d3);
-            background-size: 600% 600%;
-            animation: gradientShift 12s ease infinite;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 127, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: #ffffff;
             overflow-x: hidden;
-            min-height: 100vh;
             position: relative;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Animated Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 212, 255, 0.05) 2px,
+                    rgba(0, 212, 255, 0.05) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(157, 78, 221, 0.05) 2px,
+                    rgba(157, 78, 221, 0.05) 4px
+                );
+            pointer-events: none;
+            z-index: -1;
+            animation: gridPulse 8s ease-in-out infinite;
         }
 
-        /* Navigation Bar */
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Floating Orbs */
+        .floating-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.3), rgba(157, 78, 221, 0.3));
+            filter: blur(40px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 20%;
+            animation-delay: -7s;
+        }
+
+        .orb:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            left: 30%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+            }
+            33% {
+                transform: translateY(-30px) translateX(30px) scale(1.1);
+            }
+            66% {
+                transform: translateY(30px) translateX(-30px) scale(0.9);
+            }
+        }
+
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 15px 50px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 0 2rem;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            font-weight: 700;
-            color: #ff6b9d;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd, #00ff7f);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
-            align-items: center;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: #333;
-            font-weight: 500;
+            color: #ffffff;
+            text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
         }
 
         .nav-links a:hover {
-            color: #ff6b9d;
-        }
-
-        .photo-access-btn {
-            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255,107,157,0.2);
-            font-size: 0.9rem;
-        }
-
-        .photo-access-btn:hover {
+            color: #00d4ff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255,107,157,0.3);
         }
 
-        /* Main Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 50px 50px 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Floating Hearts */
-        .floating-hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 1.5rem;
-            color: rgba(255,255,255,0.7);
-            animation: floatHeart 8s linear infinite;
-        }
-
-        @keyframes floatHeart {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .heart:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .heart:nth-child(2) { left: 15%; animation-delay: -2s; }
-        .heart:nth-child(3) { left: 25%; animation-delay: -4s; }
-        .heart:nth-child(4) { left: 35%; animation-delay: -6s; }
-        .heart:nth-child(5) { right: 35%; animation-delay: -1s; }
-        .heart:nth-child(6) { right: 25%; animation-delay: -3s; }
-        .heart:nth-child(7) { right: 15%; animation-delay: -5s; }
-        .heart:nth-child(8) { right: 5%; animation-delay: -7s; }
-
-        /* Main Content Layout */
-        .main-content {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            gap: 50px;
-        }
-
-        /* Left Content */
-        .left-content {
-            flex: 1;
-            z-index: 10;
-        }
-
-        .main-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.4);
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            from {
-                text-shadow: 3px 3px 15px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3);
-            }
-            to {
-                text-shadow: 3px 3px 15px rgba(0,0,0,0.4), 0 0 40px rgba(255,255,255,0.6);
-            }
-        }
-
-        .birthday-message-box {
-            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));
-            padding: 30px;
-            border-radius: 20px;
-            margin: 30px 0;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255,255,255,0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            animation: messageFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes messageFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .birthday-main-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-            margin-bottom: 15px;
-            text-align: center;
-            animation: textPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes textPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .birthday-sub-text {
-            color: white;
-            font-size: 1.3rem;
-            text-align: center;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, white, #f8f9fa);
-            color: #ff6b9d;
-            padding: 20px 45px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            animation: buttonPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes buttonPulse {
-            0%, 100% { box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-            50% { box-shadow: 0 20px 45px rgba(255,107,157,0.3); }
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(255,107,157,0.4);
-            background: linear-gradient(45deg, #ffffff, #fff5f5);
-        }
-
-        /* Right Content - Celebration Graphics */
-        .right-content {
-            flex: 1;
-            position: relative;
-            height: 500px;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .celebration-container {
             position: relative;
-            width: 500px;
-            height: 500px;
+            overflow: hidden;
         }
 
-        /* Birthday Cake */
-        .birthday-cake {
+        .hero::before {
+            content: '';
             position: absolute;
-            bottom: 100px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 255, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 120%, rgba(157, 78, 221, 0.25) 0%, transparent 60%);
+            animation: heroGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #00d4ff, #9d4edd);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 4s ease-in-out infinite, fadeInUp 1s ease;
+            text-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            position: relative;
+        }
+
+        .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            height: 150px;
-            z-index: 5;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            animation: lineExpand 2s ease 0.5s both;
         }
 
-        .cake-base {
+        @keyframes lineExpand {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .hero-experience {
+            font-size: 1.2rem;
+            color: #00d4ff;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both, textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
-            height: 100px;
-            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
-        .cake-top {
-            width: 90%;
-            height: 40px;
-            background: white;
-            border-radius: 20px;
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00d4ff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Floating Particles */
+        .particles {
             position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 3px solid #ff6b9d;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
         }
 
-        .candle {
+        .particle {
             position: absolute;
-            width: 6px;
-            height: 30px;
-            background: #feca57;
-            top: -45px;
-            border-radius: 3px;
-        }
-
-        .candle:nth-child(1) { left: 30%; }
-        .candle:nth-child(2) { left: 45%; }
-        .candle:nth-child(3) { left: 60%; }
-
-        .flame {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 10px;
-            background: radial-gradient(circle, #ff6b6b, #feca57);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: flicker 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes flicker {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.1); }
-        }
-
-        .cake-decoration {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #ff3838;
             border-radius: 50%;
-            top: 20px;
+            animation: particleFloat 8s ease-in-out infinite;
+            filter: blur(1px);
         }
 
-        .cake-decoration:nth-child(5) { left: 20px; }
-        .cake-decoration:nth-child(6) { left: 50px; }
-        .cake-decoration:nth-child(7) { left: 80px; }
-        .cake-decoration:nth-child(8) { left: 110px; }
-        .cake-decoration:nth-child(9) { left: 140px; }
+        .particle:nth-child(1) { 
+            width: 8px; height: 8px; 
+            background: radial-gradient(circle, #00d4ff 0%, rgba(0, 212, 255, 0.4) 70%, transparent 100%);
+            top: 20%; left: 10%; animation-delay: 0s; 
+        }
+        .particle:nth-child(2) { 
+            width: 6px; height: 6px; 
+            background: radial-gradient(circle, #9d4edd 0%, rgba(157, 78, 221, 0.4) 70%, transparent 100%);
+            top: 80%; left: 20%; animation-delay: 1.5s; 
+        }
+        .particle:nth-child(3) { 
+            width: 10px; height: 10px; 
+            background: radial-gradient(circle, #00ff7f 0%, rgba(0, 255, 127, 0.4) 70%, transparent 100%);
+            top: 40%; left: 70%; animation-delay: 3s; 
+        }
+        .particle:nth-child(4) { 
+            width: 7px; height: 7px; 
+            background: radial-gradient(circle, #ff1493 0%, rgba(255, 20, 147, 0.4) 70%, transparent 100%);
+            top: 60%; left: 80%; animation-delay: 4.5s; 
+        }
+        .particle:nth-child(5) { 
+            width: 9px; height: 9px; 
+            background: radial-gradient(circle, #00d4ff 0%, rgba(0, 212, 255, 0.4) 70%, transparent 100%);
+            top: 30%; left: 50%; animation-delay: 6s; 
+        }
 
-        /* Balloons */
-        .balloon {
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
+                opacity: 0.6; 
+            }
+            25% { 
+                transform: translateY(-20px) translateX(15px) rotate(90deg) scale(1.3); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translateY(-35px) translateX(-10px) rotate(180deg) scale(0.7); 
+                opacity: 0.8; 
+            }
+            75% { 
+                transform: translateY(-15px) translateX(-25px) rotate(270deg) scale(1.2); 
+                opacity: 0.9; 
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
             position: absolute;
-            width: 40px;
-            height: 55px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: floatBalloon 3s ease-in-out infinite;
+            top: 0;
+            left: 50%;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #00d4ff, transparent);
+            transform: translateX(-50%);
         }
 
-        .balloon::after {
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ffffff, #00d4ff, #9d4edd);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: sectionTitleGlow 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
-            height: 60px;
-            background: #333;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            border-radius: 2px;
         }
 
-        .balloon-1 {
-            background: linear-gradient(135deg, #ff6b9d, #ff8fab);
-            top: 50px;
-            left: 100px;
-            animation-delay: 0s;
+        @keyframes sectionTitleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .balloon-2 {
-            background: linear-gradient(135deg, #54a0ff, #74b9ff);
-            top: 30px;
-            right: 50px;
-            animation-delay: -1s;
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
         }
 
-        .balloon-3 {
-            background: linear-gradient(135deg, #feca57, #ffd93d);
-            top: 80px;
-            left: 50px;
-            animation-delay: -2s;
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #c0c0c0;
+            animation: slideInLeft 1s ease;
         }
 
-        .balloon-4 {
-            background: linear-gradient(135deg, #ff3838, #ff6b6b);
-            top: 60px;
-            right: 100px;
-            animation-delay: -0.5s;
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        @keyframes floatBalloon {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            animation: slideInRight 1s ease;
         }
 
-        /* Gift Boxes */
-        .gift-box {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
-            border-radius: 5px;
-            animation: bounce 2s ease-in-out infinite;
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .gift-box::before {
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
             content: '';
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(45deg, #feca57, #ffd93d);
-            border-radius: 5px;
-            z-index: -1;
-        }
-
-        .gift-ribbon {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: #feca57;
-            transform: translateY(-50%);
-        }
-
-        .gift-ribbon::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: -15px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 20px solid #feca57;
-            transform: translateX(-50%);
-        }
-
-        .gift-1 {
-            bottom: 120px;
-            left: 80px;
-            animation-delay: 0s;
-        }
-
-        .gift-2 {
-            bottom: 140px;
-            right: 80px;
-            animation-delay: -1s;
-        }
-
-        .gift-3 {
-            bottom: 80px;
-            left: 150px;
-            animation-delay: -0.5s;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* Confetti Animation */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #feca57;
-            animation: confetti-fall 3s linear infinite;
-        }
-
-        .confetti:nth-child(odd) { background: #ff6b9d; }
-        .confetti:nth-child(3n) { background: #54a0ff; }
-        .confetti:nth-child(4n) { background: #ff3838; }
-
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* Photo Modal */
-        .photo-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
             top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            animation: modalFadeIn 0.5s ease-out;
-            overflow-y: auto;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.6s ease;
         }
 
-        @keyframes modalFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .stat-card:hover::before {
+            left: 100%;
         }
 
-        .modal-content {
-            position: relative;
-            margin: 80px auto 40px auto;
-            width: 95%;
-            max-width: 1400px;
-            background: linear-gradient(135deg, #ffffff, #f8f9fa);
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-            animation: modalSlideIn 0.6s ease-out;
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
         }
 
-        @keyframes modalSlideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
+        .stat-number {
             font-size: 2.5rem;
-            cursor: pointer;
-            color: #ff6b9d;
-            transition: all 0.3s ease;
-            z-index: 10;
-            background: rgba(255,255,255,0.9);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 900;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .close-modal:hover {
-            background: #ff6b9d;
-            color: white;
-            transform: scale(1.1);
+        .stat-label {
+            color: #a0a0a0;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
-        .modal-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #ff6b9d;
-            text-align: center;
-            margin-bottom: 50px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .photo-item {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
+        /* Experience Section */
+        .experience-timeline {
             position: relative;
+            padding-left: 3rem;
         }
 
-        .photo-item:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(255,107,157,0.2);
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #00d4ff, #9d4edd, #00ff7f);
+            border-radius: 2px;
+            animation: timelinePulse 3s ease-in-out infinite;
         }
 
-        .photo-item img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
+        @keyframes timelinePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
         }
 
-        .photo-item:hover img {
-            transform: scale(1.05);
+        .experience-item {
+            position: relative;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-left: 3rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            animation: slideInUp 0.8s ease;
         }
 
-        .photo-caption {
-            padding: 25px;
-            text-align: center;
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .photo-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #333;
-            margin-bottom: 12px;
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -4.5rem;
+            top: 2.5rem;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .experience-date {
+            color: #9d4edd;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(157, 78, 221, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .experience-description {
+            color: #c0c0c0;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .experience-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-description li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .experience-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 1.2rem;
+            animation: arrowBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        .experience-description li:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .tech-stack {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-stack h4 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        .photo-desc {
-            color: #666;
-            line-height: 1.6;
-            font-size: 1rem;
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
         }
 
-        /* Mobile Responsive */
+        .tech-tag {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.15), rgba(157, 78, 221, 0.15));
+            color: #00d4ff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.1) translateY(-2px);
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.25), rgba(157, 78, 221, 0.25));
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .skill-category h3 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: #00d4ff;
+            font-size: 1.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.15), rgba(157, 78, 221, 0.15));
+            color: #00d4ff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.15) translateY(-3px);
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.3), rgba(157, 78, 221, 0.3));
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+            color: #ffffff;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.25);
+        }
+
+        .education-degree {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .education-school {
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .education-date {
+            color: #9d4edd;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(157, 78, 221, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            display: inline-block;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            animation: slideInLeft 1s ease;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.3rem;
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: slideInRight 1s ease;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: #c0c0c0;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #a0a0a0;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border-radius: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            margin: 3px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-section {
-                padding: 120px 20px 50px 20px;
+            .mobile-menu {
+                display: flex;
             }
 
-            .main-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-            
-            .left-content {
-                margin-bottom: 30px;
-            }
-            
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .navbar {
-                padding: 15px 20px;
-            }
-            
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline {
+                padding-left: 2rem;
+            }
+
+            .experience-item {
+                margin-left: 2rem;
+            }
+
+            .experience-item::before {
+                left: -3rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .celebration-container {
-                width: 300px;
-                height: 300px;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .modal-content {
-                margin: 100px auto 40px auto;
-                width: 95%;
-                padding: 20px;
+            .section {
+                padding: 4rem 1rem;
             }
 
-            .photo-grid {
+            .skills-grid,
+            .education-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00d4ff, #9d4edd);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #0099cc, #7a4db8);
         }
     </style>
 </head>
 <body>
+    <!-- Floating Orbs -->
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">🎉 Priya's Birthday</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button class="photo-access-btn" onclick="openPhotoModal()">📸 View Photos</button></li>
-        </ul>
-        <button class="photo-access-btn" onclick="openPhotoModal()">📸 Photos</button>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Shubham Shah</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
-    <!-- Main Hero Section -->
-    <section class="hero-section">
-        <!-- Confetti -->
-        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="confetti" style="left: 20%; animation-delay: -0.3s;"></div>
-        <div class="confetti" style="left: 30%; animation-delay: -0.6s;"></div>
-        <div class="confetti" style="left: 40%; animation-delay: -0.9s;"></div>
-        <div class="confetti" style="left: 50%; animation-delay: -1.2s;"></div>
-        <div class="confetti" style="left: 60%; animation-delay: -1.5s;"></div>
-        <div class="confetti" style="left: 70%; animation-delay: -1.8s;"></div>
-        <div class="confetti" style="left: 80%; animation-delay: -2.1s;"></div>
-        <div class="confetti" style="left: 90%; animation-delay: -2.4s;"></div>
-
-        <!-- Floating Hearts -->
-        <div class="floating-hearts">
-            <div class="heart">💖</div>
-            <div class="heart">💝</div>
-            <div class="heart">💕</div>
-            <div class="heart">💗</div>
-            <div class="heart">💖</div>
-            <div class="heart">💝</div>
-            <div class="heart">💕</div>
-            <div class="heart">💗</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
         </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Shubham Shah</h1>
+            <h2 class="hero-subtitle">Software Engineer</h2>
+            <p class="hero-experience">5+ Years of Experience in Enterprise Applications</p>
+            <p class="hero-description">
+                Software Engineer with 5+ years of experience developing enterprise applications using Java, Spring Boot, 
+                and Angular in microservices and modular front-end architectures. Skilled in building secure APIs with 
+                OAuth2, JWT, and Spring Security, and implementing event-driven systems with Kafka, schema validation, 
+                and retry handling.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+                <a href="https://drive.google.com/file/d/1gxo917Z2jOtc4r6WYqkqt3CrAOajayXP/view?usp=sharing" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <div class="main-content">
-            <!-- Left Content -->
-            <div class="left-content">
-                <h1 class="main-title">Happy Birthday<br>Priya Dee!</h1>
-                
-                <div class="birthday-message-box">
-                    <h2 class="birthday-main-text">
-                        🎉 HAPPY BIRTHDAY PRIYA DEE! 🎉
-                    </h2>
-                    <p class="birthday-sub-text">
-                        Celebrating another wonderful year of your beautiful journey! ✨
-                    </p>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate Software Engineer with expertise in building robust, scalable enterprise applications. I specialize in Java, Spring Boot, Angular, and modern cloud technologies.</p>
+                <br>
+                <p>Proficient in both SQL (PostgreSQL, MySQL, Oracle) and NoSQL (MongoDB, DynamoDB) databases with a focus on performance optimization and compliance logging. Experienced in AWS cloud deployments with Docker and CI/CD pipelines.</p>
+                <br>
+                <p>Strong advocate of Agile practices, recognized for clear communication, cross-team collaboration, and taking ownership of deployments, testing, and continuous improvements.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
-                
-                <button class="cta-button" onclick="openPhotoModal()">📸 View Priya's Beautiful Photos</button>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <p class="experience-company">Church Mutual Insurance</p>
+                    </div>
+                    <span class="experience-date">Nov 2024 – Current</span>
+                </div>
+                <div class="experience-description">
+                    <p><strong>Project:</strong> Policy Document Tracker - Built backend service and Angular interface for managing policy document lifecycle.</p>
+                    <ul>
+                        <li>Developed secure Java 17 microservices using Spring Boot with event-driven patterns and circuit breaker implementation</li>
+                        <li>Designed Angular 18 front-end modules with lazy loading, route guards, and Angular Interceptors</li>
+                        <li>Built RESTful APIs in Spring Boot with OAuth2, JWT, and RBAC authentication</li>
+                        <li>Configured Spring Profiles and AWS Parameter Store for environment isolation</li>
+                        <li>Created Kafka producers with schema validation using Avro and topic monitoring</li>
+                        <li>Deployed microservices on AWS ECS and created serverless Lambda functions</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <h4>Technologies:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java 17</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Angular 18</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">AWS ECS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">OpenTelemetry</span>
+                        <span class="tech-tag">Splunk</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Right Content - Celebration Graphics -->
-            <div class="right-content">
-                <div class="celebration-container">
-                    <!-- Birthday Cake -->
-                    <div class="birthday-cake">
-                        <div class="cake-base">
-                            <div class="cake-top">
-                                <div class="candle">
-                                    <div class="flame"></div>
-                                </div>
-                                <div class="candle">
-                                    <div class="flame"></div>
-                                </div>
-                                <div class="candle">
-                                    <div class="flame"></div>
-                                </div>
-                            </div>
-                            <div class="cake-decoration"></div>
-                            <div class="cake-decoration"></div>
-                            <div class="cake-decoration"></div>
-                            <div class="cake-decoration"></div>
-                            <div class="cake-decoration"></div>
-                        </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <p class="experience-company">Fitch Ratings</p>
                     </div>
+                    <span class="experience-date">Jan 2024 – Oct 2024</span>
+                </div>
+                <div class="experience-description">
+                    <p><strong>Project:</strong> Investor Insights Dashboard - Built client-facing analytics platform for bond performance metrics.</p>
+                    <ul>
+                        <li>Refactored legacy services into modular Java 11 components with interface segregation and DTO layering</li>
+                        <li>Created shared components in Angular 14 using RxJS subjects for state communication</li>
+                        <li>Developed RESTful APIs with header-based routing and version control in Spring Gateway</li>
+                        <li>Implemented Kafka retry strategies with custom backoff intervals and topic separation</li>
+                        <li>Deployed Spring Boot microservices on Kubernetes clusters using Helm charts</li>
+                        <li>Configured Horizontal Pod Autoscaler (HPA) with liveness and readiness probes</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <h4>Technologies:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java 11</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Angular 14</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">AWS Lambda</span>
+                        <span class="tech-tag">CloudWatch</span>
+                        <span class="tech-tag">Jenkins</span>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Balloons -->
-                    <div class="balloon balloon-1"></div>
-                    <div class="balloon balloon-2"></div>
-                    <div class="balloon balloon-3"></div>
-                    <div class="balloon balloon-4"></div>
-
-                    <!-- Gift Boxes -->
-                    <div class="gift-box gift-1">
-                        <div class="gift-ribbon"></div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Java Developer</h3>
+                        <p class="experience-company">Leapfrog Technology</p>
                     </div>
-                    <div class="gift-box gift-2">
-                        <div class="gift-ribbon"></div>
-                    </div>
-                    <div class="gift-box gift-3">
-                        <div class="gift-ribbon"></div>
+                    <span class="experience-date">Dec 2019 – May 2023</span>
+                </div>
+                <div class="experience-description">
+                    <p><strong>Project:</strong> Client Billing Portal - Developed web-based billing platform for external clients.</p>
+                    <ul>
+                        <li>Developed Java 8 backend services using Spring MVC and Servlet configuration</li>
+                        <li>Created dynamic web pages using JSP, JSTL, and EL expressions</li>
+                        <li>Used Angular 10 reactive forms and custom validators for conditional field logic</li>
+                        <li>Built internal RESTful APIs using Spring Boot with bean validation annotations</li>
+                        <li>Created Kafka consumers with offset tracking and PostgreSQL delivery status storage</li>
+                        <li>Integrated third-party SOAP services using JAX-WS and WSDL definitions</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">
+                    <h4>Technologies:</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java 8</span>
+                        <span class="tech-tag">Spring MVC</span>
+                        <span class="tech-tag">Angular 10</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">SOAP</span>
+                        <span class="tech-tag">Apache Tomcat</span>
+                        <span class="tech-tag">Jenkins</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Photo Modal -->
-    <div id="photoModal" class="photo-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closePhotoModal()">&times;</span>
-            <h2 class="modal-title">✨ Priya's Beautiful Moments ✨</h2>
-            
-            <div class="photo-grid">
-                <div class="photo-item" onclick="openPhotoViewer(0)">
-                    <img src="C:\Users\shubh\Downloads\image1.jpg" alt="Priya in beautiful traditional outfit" onerror="this.src='https://via.placeholder.com/400x350/ff6b9d/ffffff?text=Priya+Traditional+Look'" class="card-image">
-                    <div class="photo-caption">
-                        <h3 class="photo-title">✨ Traditional Elegance ✨</h3>
-                        <p class="photo-desc">Stunning in a vibrant pink saree with intricate golden embroidery, showcasing timeless elegance and grace.</p>
-                    </div>
-                </div>
-
-                <div class="photo-item" onclick="openPhotoViewer(1)">
-                    <img src="C:\Users\shubh\Downloads\image2.jpg" alt="Priya in casual chic outfit" onerror="this.src='https://via.placeholder.com/400x350/feca57/ffffff?text=Priya+Casual+Style'" class="card-image">
-                    <div class="photo-caption">
-                        <h3 class="photo-title">💫 Chic & Stylish 💫</h3>
-                        <p class="photo-desc">Effortlessly stylish in a cozy brown sweater and sleek black pants, perfect for exploring new places with grace.</p>
-                    </div>
-                </div>
-
-                <div class="photo-item" onclick="openPhotoViewer(2)">
-                    <img src="C:\Users\shubh\Downloads\image3.jpg" alt="Priya festive moment" onerror="this.src='https://via.placeholder.com/400x350/54a0ff/ffffff?text=Priya+Festive+Look'" class="card-image">
-                    <div class="photo-caption">
-                        <h3 class="photo-title">🌸 Festive Beauty 🌸</h3>
-                        <p class="photo-desc">Radiating joy and beauty in a gorgeous festive ensemble, capturing the essence of celebration and happiness.</p>
-                    </div>
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Backend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java 8/11/17</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">Spring MVC</span>
+                    <span class="skill-tag">Spring Security</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Microservices</span>
+                    <span class="skill-tag">Servlets</span>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(45deg, #ff6b9d, #feca57); border-radius: 15px; color: white;">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px;">🎂 Birthday Wishes 🎂</h3>
-                <p style="font-size: 1.1rem; line-height: 1.6;">
-                    Dear Priya, on this wonderful day, we celebrate not just another year of your life, but another year of the joy, grace, and beauty you bring to everyone around you. May this new chapter be filled with exciting adventures, cherished memories, and all the happiness your heart can hold! ✨💕
-                </p>
-                <p style="margin-top: 20px; font-weight: 600; font-size: 1.2rem;">Happy Birthday, Beautiful! 🌟</p>
+            <div class="skill-category">
+                <h3><i class="fas fa-globe"></i> Frontend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Angular 8/10/14/18</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">RxJS</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">jQuery</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Oracle</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Amazon RDS</span>
+                    <span class="skill-tag">NoSQL</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-stream"></i> Messaging & Events</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Apache Kafka</span>
+                    <span class="skill-tag">Schema Validation</span>
+                    <span class="skill-tag">Topic Monitoring</span>
+                    <span class="skill-tag">Offset Handling</span>
+                    <span class="skill-tag">Retry Topics</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS ECS</span>
+                    <span class="skill-tag">AWS Lambda</span>
+                    <span class="skill-tag">AWS S3</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-shield-alt"></i> Security & Auth</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">OAuth2</span>
+                    <span class="skill-tag">JWT</span>
+                    <span class="skill-tag">RBAC</span>
+                    <span class="skill-tag">Spring Security</span>
+                    <span class="skill-tag">Session Management</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Monitoring & Testing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Splunk</span>
+                    <span class="skill-tag">OpenTelemetry</span>
+                    <span class="skill-tag">CloudWatch</span>
+                    <span class="skill-tag">JUnit</span>
+                    <span class="skill-tag">Mockito</span>
+                    <span class="skill-tag">Load Testing</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> Tools & Process</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Maven</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Agile/Scrum</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">SonarQube</span>
+                    <span class="skill-tag">YAML</span>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 class="education-degree">Master of Science in Computer Science</h3>
+                <p class="education-school">Clark University</p>
+            </div>
+            <div class="education-card">
+                <h3 class="education-degree">Bachelor's in Computer Science and Engineering</h3>
+                <p class="education-school">Vellore Institute of Technology</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>shubhamshah8794@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>(917) 677-5793</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>New York, USA</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <p>Connect with me</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="mailto:shubhamshah8794@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/shubham-shah-441shah" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/shubhamshah441/" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="tel:(917)677-5793" class="social-link">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <p>© 2025 Shubham Shah. All rights reserved.</p>
+    </footer>
 
     <script>
-        function openPhotoModal() {
-            document.getElementById('photoModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        // Simple resume download functionality - creates a formatted text file
+        function createResumeContent() {
+            return `SHUBHAM SHAH
+Software Engineer
+===============================================
+
+CONTACT INFORMATION
+Email: shubhamshah8794@gmail.com
+Phone: (917) 677-5793
+LinkedIn: https://www.linkedin.com/in/shubham-shah-441shah
+
+SUMMARY
+===============================================
+Software Engineer with 5+ years of experience developing enterprise applications using Java, Spring Boot, and Angular in microservices and modular front-end architectures. Skilled in building secure APIs with OAuth2, JWT, and Spring Security, and implementing event-driven systems with Kafka, schema validation, and retry handling. Proficient in both SQL-PostgreSQL, MySQL, Oracle and NoSQL-MongoDB, DynamoDB databases with a focus on performance optimization and compliance logging. Experienced in AWS cloud deployments (ECS, Lambda, S3, EC2) with Docker and CI/CD pipelines using Jenkins and GitHub Actions.
+
+TECHNICAL SKILLS
+===============================================
+Backend Development:
+• Java 8, Java 11, Java 17
+• Spring Boot, Spring MVC, Spring Security, Spring Profiles
+• RESTful APIs, Servlets, DTO Mapping
+
+Frontend Development:
+• Angular 8/10/14/18, TypeScript, JavaScript
+• RxJS, Reactive Forms, Angular Interceptors, Material Design
+
+Databases:
+• PostgreSQL, MySQL, Oracle, MongoDB
+• Amazon RDS, NoSQL, SQL, TTL Indexing
+
+Messaging & Event Streaming:
+• Kafka, Schema Validation, Topic Monitoring
+• Offset Handling, Retry Topics, Embedded Kafka
+
+DevOps & Deployment:
+• Docker, Kubernetes, Jenkins, CI/CD Pipelines
+• WAR Deployment, Bash Scripts, GitHub Actions
+
+Cloud & Infrastructure:
+• AWS ECS, Lambda, S3, EC2
+• Parameter Store, Secrets Manager, CloudWatch
+
+Security & Authentication:
+• OAuth2, JWT, RBAC, Spring Security Filters
+• Role-Based Access Control, Session-Based Authentication
+
+Testing & Monitoring:
+• JUnit, Mockito, Embedded Kafka, Integration Testing
+• Splunk, OpenTelemetry, Log4J, CloudWatch Dashboards
+
+WORK EXPERIENCE
+===============================================
+
+SOFTWARE ENGINEER | Church Mutual Insurance
+Nov 2024 – Current | Merrill, WI, USA
+
+Project: Policy Document Tracker
+Built and supported a backend service and Angular-based interface for managing policy document lifecycle, including version history, user acknowledgments, and expiration notices.
+
+Key Responsibilities:
+• Developed secure Java 17 microservices using Spring Boot with event-driven patterns and fallback logic through circuit breaker in a real-time notification engine
+• Designed Angular 18 front-end modules with lazy loading, route guards, and Angular Interceptors to protect routes and manage token expiration gracefully
+• Built RESTful APIs in Spring Boot for user registration and profile access, enabled actuator endpoints to monitor uptime and expose application health metrics
+• Configured Spring Profiles in YAML for environment isolation and externalized values using AWS Parameter Store to support ECS and EC2 runtime environments
+• Created Kafka producers with schema validation using Avro and enabled topic monitoring for failed payloads and consumer lag analytics
+• Integrated authentication and authorization using OAuth2, JWT, and RBAC with custom Spring Security filters for scoped endpoint access
+• Deployed microservices on AWS ECS and created Docker images with Spring Boot configurations using Secrets Manager for encrypted credential injection
+• Created serverless AWS Lambdas triggered by S3 file uploads to extract metadata and initiate document classification workflows
+
+Technologies: Java 17, Spring Boot, Angular 18, PostgreSQL, MongoDB, Kafka, AWS ECS, Docker, OpenTelemetry, Splunk
+
+-----------------------------------------------
+
+SOFTWARE ENGINEER | Fitch Ratings
+Jan 2024 – Oct 2024 | New York, USA
+
+Project: Investor Insights Dashboard
+Built a client-facing analytics platform to present bond performance metrics, issuer risk categories, and historical rating trends to institutional investors.
+
+Key Responsibilities:
+• Refactored legacy services into modular Java 11 components by applying interface segregation and DTO layering to support backward compatibility in Spring Boot applications
+• Created shared components in Angular 14 using RxJS subjects to enable state communication and isolate component-level subscriptions for better reusability
+• Applied Spring Boot validation using DTOs and constraint annotations to enforce structured payload handling and reduce boilerplate across controller layers
+• Developed RESTful APIs with header-based routing logic and configured route-based version control in Spring Gateway for internal client requests
+• Implemented Kafka retry strategies using custom backoff intervals and topic separation for error tracing and bad data quarantine
+• Deployed Spring Boot microservices on Kubernetes clusters by using Helm charts and ConfigMaps
+• Configured Horizontal Pod Autoscaler (HPA) with liveness probes and readiness probes to scale pods automatically
+
+Technologies: Java 11, Spring Boot, Angular 14, PostgreSQL, MongoDB, Kubernetes, AWS Lambda, CloudWatch, Jenkins
+
+-----------------------------------------------
+
+JAVA DEVELOPER | Leapfrog Technology
+Dec 2019 – May 2023 | Seattle, Washington, USA
+
+Project: Client Billing Portal
+Developed a web-based billing platform for external clients to download invoices, track payment history, and raise disputes linked to service contracts.
+
+Key Responsibilities:
+• Developed Java 8 backend services using Spring MVC and Servlet configuration to handle internal APIs, parameter bindings, and form-based login flows
+• Created dynamic web pages using JSP, JSTL, and EL expressions, backed by controller actions in a tightly coupled MVC architecture
+• Used Angular 10 reactive forms and custom validators to implement conditional field logic and reused form structures across modules using shared services
+• Built internal APIs as RESTful APIs using Spring Boot, applied bean validation annotations, and connected with frontends through JSON-based data exchange
+• Created Kafka consumers with offset tracking and retries by storing delivery status in PostgreSQL, and implemented basic monitoring using partition lag metrics
+• Integrated third-party SOAP services using JAX-WS, consumed WSDL definitions, and performed schema validation using XML schemas before parsing payloads
+• Handled manual deployment through WAR packaging into Apache Tomcat with Bash-based shell scripts for config switching and environment-specific setup
+
+Technologies: Java 8, Spring MVC, Angular 10, Oracle, PostgreSQL, MongoDB, SOAP, Apache Tomcat, Jenkins
+
+EDUCATION
+===============================================
+Master of Science in Computer Science
+Clark University
+
+Bachelor's in Computer Science and Engineering  
+Vellore Institute of Technology
+
+===============================================
+© 2025 Shubham Shah. All rights reserved.`;
         }
 
-        function closePhotoModal() {
-            document.getElementById('photoModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('photoModal');
-            if (event.target == modal) {
-                closePhotoModal();
-            }
-        }
-
-        // Add some sparkle effects
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.innerHTML = '✨';
-            sparkle.style.position = 'fixed';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.animationDuration = Math.random() * 3 + 2 + 's';
-            sparkle.style.opacity = Math.random();
-            sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
-            sparkle.style.pointerEvents = 'none';
-            sparkle.style.animation = 'confetti-fall 4s linear infinite';
-            sparkle.style.zIndex = '5';
-            document.body.appendChild(sparkle);
-
-            setTimeout(() => {
-                sparkle.remove();
-            }, 4000);
-        }
-
-        // Create sparkles periodically
-        setInterval(createSparkle, 2000);
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            const modal = document.getElementById('photoModal');
-            if (modal.style.display === 'block' && event.key === 'Escape') {
-                closePhotoModal();
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .experience-item, .skill-category, .education-card, .stat-card').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Contact form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:shubhamshah8794@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            this.reset();
+            
+            // Show success notification
+            showNotification('Thank you for your message! Your email client should open shortly.', 'success');
+        });
+
+        // Resume download functionality - PDF generation
+        document.getElementById('downloadResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            try {
+                // Wait for jsPDF to load
+                setTimeout(() => {
+                    if (typeof window.jspdf !== 'undefined') {
+                        generateAndDownloadPDF();
+                    } else {
+                        // Fallback to text if PDF library fails to load
+                        downloadTextResume();
+                    }
+                }, 100);
+                
+            } catch (error) {
+                console.error('Download error:', error);
+                downloadTextResume();
+            }
+        });
+
+        function generateAndDownloadPDF() {
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                let yPos = 20;
+                const leftMargin = 20;
+                const pageWidth = 170;
+                
+                // Helper function to add text with word wrap
+                function addText(text, x, y, fontSize = 10, style = 'normal', color = [0, 0, 0]) {
+                    doc.setFontSize(fontSize);
+                    doc.setFont('helvetica', style);
+                    doc.setTextColor(color[0], color[1], color[2]);
+                    const lines = doc.splitTextToSize(text, pageWidth - x + leftMargin);
+                    doc.text(lines, x, y);
+                    return y + (lines.length * (fontSize * 0.35)) + 2;
+                }
+                
+                function checkPageBreak(currentY, neededSpace = 20) {
+                    if (currentY + neededSpace > 280) {
+                        doc.addPage();
+                        return 20;
+                    }
+                    return currentY;
+                }
+                
+                // Header - Name and Contact
+                yPos = addText('Shubham Shah', leftMargin, yPos, 20, 'bold');
+                yPos = addText('shubhamshah8794@gmail.com | 917 677 5793 | LinkedIn', leftMargin, yPos, 10);
+                yPos += 8;
+                
+                // Summary Section
+                yPos = addText('Summary', leftMargin, yPos, 14, 'bold');
+                const summaryText = 'Software Engineer with 5+ years of experience developing enterprise applications using Java, Spring Boot, and Angular in microservices and modular front-end architectures. Skilled in building secure APIs with OAuth2, JWT, and Spring Security, and implementing event-driven systems with Kafka, schema validation, and retry handling. Proficient in both SQL-PostgreSQL, MySQL, Oracle and NoSQL-MongoDB, DynamoDB databases with a focus on performance optimization and compliance logging. Experienced in AWS cloud deployments (ECS, Lambda, S3, EC2) with Docker and CI/CD pipelines using Jenkins and GitHub Actions. Adept at monitoring and troubleshooting production systems with Splunk, OpenTelemetry, and CloudWatch to ensure reliability and resilience. Strong advocate of Agile practices, recognized for clear communication, cross-team collaboration, and taking ownership of deployments, testing, and continuous improvements.';
+                yPos = addText(summaryText, leftMargin, yPos, 10);
+                yPos += 8;
+                
+                // Technical Tools Section
+                yPos = checkPageBreak(yPos, 60);
+                yPos = addText('Technical Tools', leftMargin, yPos, 14, 'bold');
+                
+                const technicalSections = [
+                    {
+                        title: 'Backend Development:',
+                        content: 'Java 8, Java 11, Java 17, Spring Boot, Spring MVC, Spring Security, Spring Profiles, RESTful APIs, Servlets, DTO Mapping'
+                    },
+                    {
+                        title: 'Frontend Development:',
+                        content: 'Angular 8/10/14/18, TypeScript, JavaScript, RxJS, Reactive Forms, Angular Interceptors, Material Design'
+                    },
+                    {
+                        title: 'Databases:',
+                        content: 'PostgreSQL, MySQL, Oracle, MongoDB, Amazon RDS, NoSQL, SQL, TTL Indexing'
+                    },
+                    {
+                        title: 'Messaging & Event Streaming:',
+                        content: 'Kafka, Schema Validation, Topic Monitoring, Offset Handling, Retry Topics, Embedded Kafka'
+                    },
+                    {
+                        title: 'DevOps & Deployment:',
+                        content: 'Docker, Kubernetes, Jenkins, CI/CD Pipelines, WAR Deployment, Bash Scripts, GitHub Actions, Manual Config'
+                    },
+                    {
+                        title: 'Cloud & Infrastructure:',
+                        content: 'AWS ECS, Lambda, S3, EC2, Parameter Store, Secrets Manager, CloudWatch'
+                    },
+                    {
+                        title: 'Security & Auth:',
+                        content: 'OAuth2, JWT, RBAC, Spring Security Filters, Role-Based Access Control, Session-Based Authentication'
+                    },
+                    {
+                        title: 'Testing:',
+                        content: 'JUnit, Mockito, Embedded Kafka, Integration Testing, Load Testing, K6'
+                    },
+                    {
+                        title: 'Monitoring & Logging:',
+                        content: 'Splunk, OpenTelemetry, Log4J, CloudWatch Dashboards, MDC Injection'
+                    },
+                    {
+                        title: 'Build & Configuration:',
+                        content: 'Maven, YAML, Jenkins Jobs, Environment Variables, Property Files'
+                    },
+                    {
+                        title: 'Legacy & Integration:',
+                        content: 'JSP, JSTL, Struts, SOAP, WSDL, JAXB, XML Parsing, DOM Parser, jQuery, AJAX'
+                    },
+                    {
+                        title: 'Process & Collaboration:',
+                        content: 'Agile, Sprint Planning, Retrospectives, Jira, QA Handoffs, Technical Communication'
+                    }
+                ];
+                
+                technicalSections.forEach(section => {
+                    yPos = checkPageBreak(yPos, 15);
+                    yPos = addText(section.title + ' ' + section.content, leftMargin, yPos, 9);
+                    yPos += 2;
+                });
+                yPos += 8;
+                
+                // Experiences Section
+                yPos = checkPageBreak(yPos, 40);
+                yPos = addText('Experiences', leftMargin, yPos, 14, 'bold');
+                
+                // Church Mutual Insurance
+                yPos = checkPageBreak(yPos, 30);
+                yPos = addText('Church Mutual Insurance | Software Engineer', leftMargin, yPos, 12, 'bold');
+                yPos = addText('Nov 2024 – Current | Merrill, Wi, USA', leftMargin, yPos, 10);
+                yPos = addText('Project: Policy Document Tracker', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Built and supported a backend service and Angular-based interface for managing policy document lifecycle, including version history, user acknowledgments, and expiration notices. The project addressed the need for internal teams to track compliance documents tied to specific coverage types and policyholders. Used event-driven triggers to update document status and display real-time badges on the dashboard.', leftMargin, yPos, 9);
+                yPos += 3;
+                
+                yPos = addText('Responsibilities:', leftMargin, yPos, 10, 'bold');
+                const churchResponsibilities = [
+                    'Developed secure Java 17 microservices using Spring Boot with event-driven patterns and fallback logic through circuit breaker in a real-time notification engine.',
+                    'Designed Angular 18 front-end modules with lazy loading, route guards, and Angular Interceptors to protect routes and manage token expiration gracefully.',
+                    'Built RESTful APIs in Spring Boot for user registration and profile access, enabled actuator endpoints to monitor uptime and expose application health metrics.',
+                    'Configured Spring Profiles in YAML for environment isolation and externalized values using AWS Parameter Store to support ECS and EC2 runtime environments.',
+                    'Created Kafka producers with schema validation using Avro and enabled topic monitoring for failed payloads and consumer lag analytics.',
+                    'Integrated authentication and authorization using OAuth2, JWT, and RBAC with custom Spring Security filters for scoped endpoint access.',
+                    'Used TypeScript to develop shared services and reactive forms for onboarding components inside Angular, supporting field-level validation and role-based toggles.',
+                    'Designed PostgreSQL schema for ticket tracking features and optimized SQL joins and indexes for dashboard and SLA monitoring modules.',
+                    'Deployed microservices on AWS ECS and created Docker images with Spring Boot configurations using Secrets Manager for encrypted credential injection.',
+                    'Created serverless AWS Lambdas triggered by S3 file uploads to extract metadata and initiate document classification workflows.',
+                    'Integrated JUnit and Mockito tests covering controller responses, service logic, and Kafka message retries, using embedded Kafka for local validations.',
+                    'Managed production deployment using rolling strategies in Jenkins CI/CD, coordinated rollback plans, and tracked code smells using SonarQube reports.',
+                    'Configured OpenTelemetry to trace Kafka flows and linked them to Splunk dashboards, improving traceability in distributed microservices.',
+                    'Used JavaScript inside Angular widgets to render live charts and bind keyboard shortcuts for frequent actions in tabular views.',
+                    'Contributed to internal GenAI PoC for backend NLP classification using AWS SageMaker APIs and integrated tokenized input workflows into event stream processing.',
+                    'Used MongoDB to persist audit events for compliance logging and configured capped collections for periodic expiration.',
+                    'Participated in daily Agile scrum meetings and sprint planning sessions with product, QA, and dev teams for technical clarity and communication.',
+                    'Resolved production issues using Linux tools like grep, journalctl, and tail for log analysis and restarted failing containers in ECS via CLI.',
+                    'Built dynamic forms using Angular with Material Design libraries and performed accessibility testing across multiple device resolutions and breakpoints.'
+                ];
+                
+                churchResponsibilities.forEach(resp => {
+                    yPos = checkPageBreak(yPos, 10);
+                    yPos = addText('● ' + resp, leftMargin, yPos, 8);
+                    yPos += 1;
+                });
+                
+                yPos += 3;
+                yPos = addText('Technological Environment:', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Java 17, Spring Boot, Spring Profiles, Spring Actuator, Spring Security, OAuth2, JWT, RBAC, RESTful APIs, Angular 18, TypeScript, JavaScript, Angular Interceptors, Lazy Loading, Material Design, PostgreSQL, MongoDB, Kafka, Schema Validation, Topic Monitoring, AWS ECS, AWS Lambda, AWS EC2, AWS S3, Parameter Store, Secrets Manager, Docker, CI/CD, JUnit, Mockito, SonarQube, OpenTelemetry, Splunk, Agile, Linux, YAML, GenAI, SageMaker, Reactive Forms, Avro, Circuit Breaker, Communication', leftMargin, yPos, 8);
+                yPos += 8;
+                
+                // Fitch Ratings
+                yPos = checkPageBreak(yPos, 30);
+                yPos = addText('Fitch Ratings | Software Engineer', leftMargin, yPos, 12, 'bold');
+                yPos = addText('Jan 2024 – Oct 2024 | New York, USA', leftMargin, yPos, 10);
+                yPos = addText('Project: Investor Insights Dashboard', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Built a client-facing analytics platform to present bond performance metrics, issuer risk categories, and historical rating trends to institutional investors. Developed backend Spring Boot services to aggregate and serve rating data through REST APIs, incorporating pagination and filtering for efficient querying. Created interactive Angular components for visualizing data via charts and sortable grids, allowing users to compare issuers across regions and sectors.', leftMargin, yPos, 9);
+                yPos += 3;
+                
+                yPos = addText('Responsibilities:', leftMargin, yPos, 10, 'bold');
+                const fitchResponsibilities = [
+                    'Refactored legacy services into modular Java 11 components by applying interface segregation and DTO layering to support backward compatibility in Spring Boot applications.',
+                    'Created shared components in Angular 14 using RxJS subjects to enable state communication and isolate component-level subscriptions for better reusability.',
+                    'Applied Spring Boot validation using DTOs and constraint annotations to enforce structured payload handling and reduce boilerplate across controller layers.',
+                    'Developed RESTful APIs with header-based routing logic and configured route-based version control in Spring Gateway for internal client requests.',
+                    'Created table structures in PostgreSQL to manage record logs and optimized filtering logic using partial indexes and time-bound range scans.',
+                    'Used TypeScript to build shared utility methods and implemented dynamic validators with rule-based form behavior mapped from backend configurations.',
+                    'Implemented Kafka retry strategies using custom backoff intervals and topic separation for error tracing and bad data quarantine.',
+                    'Designed service orchestration using standardized configs and API templates to handle microservices version updates without breaking downstream consumers.',
+                    'Developed reactive UI forms in Angular with lazy-loaded feature routes to reduce initial load size and improve performance in low-bandwidth scenarios.',
+                    'Modeled NoSQL data using MongoDB for distributed token state and improved query access patterns using compound indexes and TTL expiration policies.',
+                    'Processed incoming payloads with Java 11 streams and parallel collectors, then dispatched cleaned records to Kafka producers for background consumption.',
+                    'Created Jenkins CI/CD pipelines with job-level quality gates, then deployed services using Docker with runtime ENV configuration and custom tagging logic.',
+                    'Deployed Spring Boot microservices on Kubernetes clusters by using Helm charts and ConfigMaps.',
+                    'Configured Secrets for environment variables in order to support secure and consistent application rollouts.',
+                    'Configured Horizontal Pod Autoscaler (HPA) with liveness probes and readiness probes to scale pods automatically.',
+                    'Deployed AWS Lambda functions to archive generated files into S3, connected output logs to CloudWatch, and sent completion events to downstream queues.',
+                    'Set up metric dashboards in CloudWatch and configured Splunk alerts using JSON log enrichment and OpenTelemetry trace correlation.',
+                    'Wrote functional tests using JUnit and Mockito to verify Kafka retry behavior, fallback flows, and error propagation through middleware filters.',
+                    'Collaborated in Agile grooming, conducted test case reviews with QA teams, and shared technical blockers during daily calls for effective communication.'
+                ];
+                
+                fitchResponsibilities.forEach(resp => {
+                    yPos = checkPageBreak(yPos, 10);
+                    yPos = addText('● ' + resp, leftMargin, yPos, 8);
+                    yPos += 1;
+                });
+                
+                yPos += 3;
+                yPos = addText('Technological Environment:', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Java 11, Spring Boot, DTO Mapping, Request Validation, RESTful APIs, Angular 14, RxJS, Lazy Loading, TypeScript, JavaScript, PostgreSQL, MongoDB, NoSQL, Microservices, Service Orchestration, Kafka, Retry Handling, Topic Setup, Docker, Jenkins, CI/CD, Deployment, Kubernetes, AWS Lambda, AWS S3, AWS EC2, CloudWatch, Splunk, JUnit, Mockito, Agile, Communication, OpenTelemetry, JSON Logs, Header-Based Routing, ENV Config', leftMargin, yPos, 8);
+                yPos += 8;
+                
+                // Leapfrog Technology
+                yPos = checkPageBreak(yPos, 30);
+                yPos = addText('Leapfrog Technology | Java Developer', leftMargin, yPos, 12, 'bold');
+                yPos = addText('Dec 2019 – May 2023 | Seattle, Washington, USA', leftMargin, yPos, 10);
+                yPos = addText('Project: Client Billing Portal', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Developed a web-based billing platform for external clients to download invoices, track payment history, and raise disputes linked to service contracts. Built Spring MVC controllers with form-based login and integrated backend services to fetch invoice data from Oracle procedures.', leftMargin, yPos, 9);
+                yPos += 3;
+                
+                yPos = addText('Responsibilities:', leftMargin, yPos, 10, 'bold');
+                const leapfrogResponsibilities = [
+                    'Developed Java 8 backend services using Spring MVC and Servlet configuration to handle internal APIs, parameter bindings, and form-based login flows.',
+                    'Created dynamic web pages using JSP, JSTL, and EL expressions, backed by controller actions in a tightly coupled MVC architecture.',
+                    'Used Angular 10 reactive forms and custom validators to implement conditional field logic and reused form structures across modules using shared services.',
+                    'Built internal APIs as RESTful APIs using Spring Boot, applied bean validation annotations, and connected with frontends through JSON-based data exchange.',
+                    'Created Kafka consumers with offset tracking and retries by storing delivery status in PostgreSQL, and implemented basic monitoring using partition lag metrics.',
+                    'Designed legacy data structures in Oracle for reference tables and transactional reports using stored procedures and foreign key-based access control.',
+                    'Modeled MongoDB collections for temporary storage of caching metadata and configured TTL policies for periodic cleanup of expired documents.',
+                    'Integrated third-party SOAP services using JAX-WS, consumed WSDL definitions, and performed schema validation using XML schemas before parsing payloads.',
+                    'Implemented UI logic using JavaScript and jQuery for modal interactions, dynamic select dropdowns, and content updates using AJAX for a more responsive experience.',
+                    'Handled manual deployment through WAR packaging into Apache Tomcat with Bash-based shell scripts for config switching and environment-specific setup.',
+                    'Authenticated users through legacy session-based management and encrypted token storage using database-backed security filters for restricted areas.',
+                    'Used JUnit and Mockito to test controller logic and helper utilities, wrote stubs for SOAP endpoints, and validated schema-mapped response parsing.',
+                    'Logged application behavior using Log4J with rolling file appenders and property-based log level control for tracking issues in legacy workflows.',
+                    'Participated in sprint ceremonies under the Agile model, collaborated with QA during regression windows, and maintained active communication during UAT reviews.',
+                    'Configured Jenkins jobs for CI pipelines to package builds and deploy to on-prem servers, added notification triggers for successful artifact publishing.',
+                    'Parsed nested XML payloads using DOM parser to extract keys from multi-level SOAP responses and log rejected entries for audit compliance.'
+                ];
+                
+                leapfrogResponsibilities.forEach(resp => {
+                    yPos = checkPageBreak(yPos, 10);
+                    yPos = addText('● ' + resp, leftMargin, yPos, 8);
+                    yPos += 1;
+                });
+                
+                yPos += 3;
+                yPos = addText('Technological Environment:', leftMargin, yPos, 10, 'bold');
+                yPos = addText('Java 8, Spring, Spring Boot, Spring MVC, JSP, JSTL, Servlets, SOAP, RESTful APIs, XML, WSDL, JAXB, DOM Parser, Log4J, Oracle, PostgreSQL, MongoDB, MySQL, SQL, NoSQL, Kafka, Offset Tracking, JUnit, Mockito, Angular 10, Reactive Forms, RxJS, TypeScript, JavaScript, jQuery, AJAX, WAR Deployment, Apache Tomcat, Bash Scripts, Jenkins, CI/CD, Agile, Communication, Manual Configuration, Legacy Auth', leftMargin, yPos, 8);
+                yPos += 8;
+                
+                // Education Section
+                yPos = checkPageBreak(yPos, 20);
+                yPos = addText('Education', leftMargin, yPos, 14, 'bold');
+                yPos = addText('Clark University', leftMargin, yPos, 11, 'bold');
+                yPos = addText('Master Of Science In Computer Science', leftMargin, yPos, 10);
+                yPos += 5;
+                yPos = addText('Vellore Institute of Technology', leftMargin, yPos, 11, 'bold');
+                yPos = addText('Bachelors in Computer Science and Engineering', leftMargin, yPos, 10);
+                
+                // Save the PDF
+                doc.save('Shubham_Shah_Resume.pdf');
+                showNotification('Resume PDF downloaded successfully!', 'success');
+                
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                downloadTextResume();
+            }
+        }
+        
+        function downloadTextResume() {
+            try {
+                const resumeContent = createResumeContent();
+                const blob = new Blob([resumeContent], { type: 'text/plain;charset=utf-8' });
+                const url = window.URL.createObjectURL(blob);
+                const downloadLink = document.createElement('a');
+                downloadLink.href = url;
+                downloadLink.download = 'Shubham_Shah_Resume.txt';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                window.URL.revokeObjectURL(url);
+                showNotification('Resume downloaded as text file (PDF unavailable)', 'success');
+            } catch (error) {
+                console.error('Text download error:', error);
+                showNotification('Error downloading resume. Please try again.', 'error');
+            }
+        }
+
+        // Contact item click handlers
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                const text = this.querySelector('p').textContent;
+                
+                if (icon.classList.contains('fa-envelope')) {
+                    window.open(`mailto:${text}`, '_blank');
+                } else if (icon.classList.contains('fa-phone')) {
+                    window.open(`tel:${text}`, '_blank');
+                } else if (icon.classList.contains('fa-linkedin')) {
+                    window.open('https://www.linkedin.com/in/shubham-shah-441shah', '_blank');
+                }
+            });
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple-animation 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(45deg, #00d4ff, #9d4edd)' : 'rgba(255, 255, 255, 0.1)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Add notification animations
+        const notificationStyle = document.createElement('style');
+        notificationStyle.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyle);
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.style.opacity = '1';
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Enhanced particle animation
+        function createFloatingParticles() {
+            const colors = ['#00d4ff', '#9d4edd', '#00ff7f', '#ff1493', '#4ecdc4'];
+            const particlesContainer = document.querySelector('.particles');
+            
+            for (let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 12 + 4;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.background = `radial-gradient(circle, ${color} 0%, ${color}80 70%, transparent 100%)`;
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize enhanced features
+        window.addEventListener('load', function() {
+            // Create additional floating particles
+            createFloatingParticles();
+            
+            // Add glitch effect to title occasionally
+            const title = document.querySelector('.hero-title');
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    title.style.textShadow = '2px 0 #ff0000, -2px 0 #00ffff';
+                    setTimeout(() => {
+                        title.style.textShadow = '0 0 50px rgba(0, 212, 255, 0.3)';
+                    }, 100);
+                }
+            }, 1000);
+        });
+
+        // Parallax effect for floating orbs
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.orb');
+            
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.1);
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Enhanced hover effects for skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.15) translateY(-3px) rotate(2deg)';
+                this.style.zIndex = '10';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0) rotate(0deg)';
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Add cursor trail effect
+        const cursor = document.createElement('div');
+        cursor.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.5), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        `;
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Hide cursor trail on mobile
+        if (window.innerWidth <= 768) {
+            cursor.style.display = 'none';
+        }
     </script>
 </body>
 </html>
+        
